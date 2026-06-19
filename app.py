@@ -12,7 +12,7 @@ st.set_page_config(
 # Load Model
 @st.cache_resource
 def load_model():
-    model = joblib.load("attrition_model_3_.pkl")
+    model = joblib.load("attrition_model.pkl")
     return model
 
 model = load_model()

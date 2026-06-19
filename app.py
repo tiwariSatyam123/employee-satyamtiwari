@@ -2,9 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 
-# ---------------------------------------------------------
-# Page Config
-# ---------------------------------------------------------
+-
 st.set_page_config(
     page_title="Employee Attrition Prediction",
     page_icon="🧑‍💼",

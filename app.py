@@ -2,16 +2,14 @@ import streamlit as st
 import pandas as pd
 import joblib
 
--
+# Page Config
 st.set_page_config(
     page_title="Employee Attrition Prediction",
     page_icon="🧑‍💼",
     layout="centered"
 )
 
-# ---------------------------------------------------------
 # Load Model
-# ---------------------------------------------------------
 @st.cache_resource
 def load_model():
     model = joblib.load("attrition_model_3_.pkl")
@@ -19,10 +17,8 @@ def load_model():
 
 model = load_model()
 
-# ---------------------------------------------------------
 # Categorical Encoding Maps
 # (Same as sklearn LabelEncoder would produce - alphabetical order)
-# ---------------------------------------------------------
 business_travel_map = {
     "Non-Travel": 0,
     "Travel_Frequently": 1,
@@ -101,9 +97,7 @@ performance_levels = {
     4: "Outstanding"
 }
 
-# ---------------------------------------------------------
 # Title
-# ---------------------------------------------------------
 st.title("🧑‍💼 Employee Attrition Prediction")
 st.markdown(
     "Employee ki details bharo, model predict karega ki employee "
@@ -111,9 +105,7 @@ st.markdown(
 )
 st.divider()
 
-# ---------------------------------------------------------
 # Input Form
-# ---------------------------------------------------------
 with st.form("attrition_form"):
 
     st.subheader("📋 Personal Details")
@@ -234,9 +226,7 @@ with st.form("attrition_form"):
 
     submitted = st.form_submit_button("🔮 Predict Attrition", use_container_width=True)
 
-# ---------------------------------------------------------
 # Prediction
-# ---------------------------------------------------------
 if submitted:
 
     # IMPORTANT: column order must exactly match model.feature_names_in_
